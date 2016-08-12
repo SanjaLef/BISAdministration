@@ -1,0 +1,72 @@
+
+<div class="wrapper" >
+  <ng-include src="'views/header.html'"></ng-include>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Внес на име на привилегии
+      
+      </h1>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+ <div class = "row">
+     <div class="col-md-4">
+                <label>Име на привилегии</label>
+                <div class="col-xs-15">
+                  <input type="text" class="form-control" placeholder="Внеси име на привилегии" style="
+              width: 350px;
+              padding-bottom: 11px;
+              margin-bottom: 5px;
+          " ng-model="PermissionN.PermissionDescription" />
+                </div>
+              </div>
+   </div>
+   <div class="row">
+    <div  class="col-lg-4">
+                   <button type="button" class="btn btn-success pull-right " style="min-width: 100px; height: 30px" ng-click="insertupdatePermission()">Зачувај</button>
+              </div>
+</div>
+                <div class="box-body">
+          <div class="row">
+
+            <div class="form-horizontal col-lg-4 ">
+
+              <table class="table table-hover table-bordered">
+                <thead style="background-color: #00a65a;color: white;">
+                  <th class="col-md-3">Име на привилегии</th>
+                  
+                </thead>
+                
+                <tr  dir-paginate=" item in Permission  | itemsPerPage:10  track by $index " ng-class="{'selected':$index == selectedRow}"  ng-click="setClickedRow($index); previewForEdit(item);">
+              
+                  <td style="padding-left: 10px !important"> {{item.permissionDescription}}</td>
+                
+
+                </tr>
+
+
+
+                  </td>
+
+
+
+                </tr>
+
+              </table>
+
+            </div>
+
+
+          </div>
+        </div><!-- /.box-body -->
+
+    </section>
+    <div class="clearfix"></div>
+  </div>
+  <ng-include src="'views/footer.html'"></ng-include>
+</div>

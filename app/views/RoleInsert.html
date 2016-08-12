@@ -1,0 +1,90 @@
+
+<div class="wrapper" >
+  <ng-include src="'views/header.html'"></ng-include>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Внес на име на улога
+      
+      </h1>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+     <div class = "row">
+   <div class="col-lg-4">
+                  <div class="form-group">
+                  <label>Апликација</label> 
+               <!--  <select ng-model="Role.Role" class="form-control">
+                    <option ng-repeat="role in roles">{{role.roleDescription}}</option>
+                  </select> -->
+                  <ui-select  ng-model="RoleN.ApplicationId"  class="pull-right" style="min-width: 340px; height: 30px"  theme="select2"  on-select="polni($select.selected.applicationId)" required>
+                 <ui-select-match > {{$select.selected.applicationName}}</ui-select-match>
+                 <ui-select-choices repeat="item.applicationId as item in application | filter: $select.search">
+                    <small>
+                      <spam  ng-bind-html="item.applicationName  | highlight: $select.search"></spam>
+                    </small>
+                  </ui-select-choices>
+                </ui-select>​
+                </div>
+     </div>
+     </div>
+ <div class = "row">
+     <div class="col-md-4">
+                <label>Име на улога</label>
+                <div class="col-xs-15">
+                  <input type="text" class="form-control" placeholder="Внеси име на улога" style="
+              width: 350px;
+              padding-bottom: 11px;
+              margin-bottom: 5px;
+          " ng-model="RoleN.RoleDescription" />
+                </div>
+              </div>
+   </div>
+   <div class="row">
+    <div  class="col-lg-4">
+                   <button type="button" class="btn btn-success pull-right " style="min-width: 100px; height: 30px" ng-click="insertupdateRole()">Зачувај</button>
+              </div>
+</div>
+                <div class="box-body">
+          <div class="row">
+
+            <div class="form-horizontal col-lg-4 ">
+
+              <table class="table table-hover table-bordered">
+                <thead style="background-color: #00a65a;color: white;">
+                  <th class="col-md-3">Име на улога</th>
+                  
+                </thead>
+                
+                <tr  dir-paginate=" item in Role  | itemsPerPage:10  track by $index " ng-class="{'selected':$index == selectedRow}"  ng-click="setClickedRow($index); previewForEdit(item);">
+              
+                  <td style="padding-left: 10px !important"> {{item.roleDescription}}</td>
+                
+
+                </tr>
+
+
+
+                  </td>
+
+
+
+                </tr>
+
+              </table>
+
+            </div>
+
+
+          </div>
+        </div>
+
+    </section>
+    <div class="clearfix"></div>
+  </div>
+  <ng-include src="'views/footer.html'"></ng-include>
+</div>

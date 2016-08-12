@@ -1,0 +1,15 @@
+ if(localStorage.getItem("loginData")){
+
+      var authData = JSON.parse(localStorage.getItem("loginData"));
+      console.log(authData);
+    }
+
+    if(authData)
+    {
+
+    }
+    else
+    {
+      $location.path('/login');
+      localStorage.clear();
+    }
